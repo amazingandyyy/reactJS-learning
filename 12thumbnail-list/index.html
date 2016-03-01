@@ -28,7 +28,7 @@
 
 <script type="text/jsx">
     // Define a `class`
-  var Badge = React.createClass({
+  var Badgee = React.createClass({
     render: function() {
       return <button className="btn btn-primary" type="button">
   							{this.props.title1} <span className="badge">{this.props.number1}</span>
@@ -45,7 +45,7 @@
 											<h3>{this.props.header}</h3>
 											<p>{this.props.description}</p>
 											<p>
-												<Badge title1={this.props.title} number1={this.props.number} />
+												<Badgee title1={this.props.title} number1={this.props.number} />
 											</p>
 									</div>
 								</div>
@@ -86,7 +86,6 @@
 								description: 'Meteor is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library.',
 								imageUrl: 'https://www.codementor.io/assets/tutorial_icon/meteor.png'
 						}]
-
 		};
 
 
