@@ -1,0 +1,68 @@
+<head>
+    <title>Badge</title>
+   <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.13.3/JSXTransformer.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    
+</head>
+
+<body>
+<div class="container" style="padding-top: 100px;">
+	<div class="row">
+	<div class="col-sm-4"></div>
+		<div class="col-sm-4 target"></div>
+	</div>
+</div>
+</body>
+
+<script type="text/jsx">
+    // Define a `class`
+  var Badge = React.createClass({
+    render: function() {
+      return <button className="btn btn-primary" type="button">
+  							{this.props.title1} <span className="badge">{this.props.number1}</span>
+						</button>
+    }
+  });
+		
+		var Thambnail = React.createClass ({
+				render: function () {
+						return <div className="thumbnail">
+								<img src={this.props.imageUrl} />
+								<div className="caption">
+										<h3>{this.props.header}</h3>
+										<p>{this.props.description}</p>
+										<p>
+												<Badge title1={this.props.title} number1={this.props.number} />
+										</p>
+								</div>
+						</div>
+				}
+		});
+		
+		var options = {
+						title: 'See Tutorials',
+						number: 33,
+						header: 'Learn React',
+						description: 'Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. ',
+						imageUrl: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'
+		};
+
+  // React, please render this class
+  var element = React.createElement(Thambnail, options);
+
+  // React, after you render this class, please place it in my body tag
+  ReactDOM.render(element, document.querySelector('.target'));
+</script>

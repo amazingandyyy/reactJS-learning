@@ -19,28 +19,50 @@
 </head>
 
 <body>
-
+<div class="container" style="padding-top: 100px;">
+	<div class="row">
+	<div class="col-sm-4"></div>
+		<div class="col-sm-4 target"></div>
+	</div>
+</div>
 </body>
 
 <script type="text/jsx">
     // Define a `class`
   var Badge = React.createClass({
     render: function() {
-				
       return <button className="btn btn-primary" type="button">
-  							{this.props.title} <span className="badge">{this.props.number}</span>
+  							{this.props.title1} <span className="badge">{this.props.number1}</span>
 						</button>
     }
   });
 		
+		var Thambnail = React.createClass ({
+				render: function () {
+						return <div className="thumbnail">
+								<img src={this.props.imageUrl} />
+								<div className="caption">
+										<h3>{this.props.header}</h3>
+										<p>{this.props.description}</p>
+										<p>
+												<Badge title1={this.props.title} number1={this.props.number} />
+										</p>
+								</div>
+						</div>
+				}
+		});
+		
 		var options = {
-						title: 'Get',
-						number: 12
+						title: 'See Tutorials',
+						number: 33,
+						header: 'Learn React',
+						description: 'Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. ',
+						imageUrl: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'
 		};
 
   // React, please render this class
-  var element = React.createElement(Badge, options);
+  var element = React.createElement(Thambnail, options);
 
   // React, after you render this class, please place it in my body tag
-  ReactDOM.render(element, document.body);
+  ReactDOM.render(element, document.querySelector('.target'));
 </script>
