@@ -15,15 +15,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    
+
 </head>
 
 <body>
-<div class="container" style="padding-top: 100px;">
+<div class="container " style="padding-top: 100px;">
 	<div class="row">
-	<div class="col-sm-4"></div>
-		<div class="col-sm-4 target"></div>
-	</div>
+	<div className="col-sm-4"></div>
+	<div class="target"></div>
 </div>
 </body>
 
@@ -36,32 +35,64 @@
 						</button>
     }
   });
-		
-		var Thambnail = React.createClass ({
+
+		var Thumbnail = React.createClass ({
 				render: function () {
-						return <div className="thumbnail">
-								<img src={this.props.imageUrl} />
-								<div className="caption">
-										<h3>{this.props.header}</h3>
-										<p>{this.props.description}</p>
-										<p>
+						return <div className="col-sm-4 ">
+								<div className="thumbnail">
+									<img src={this.props.imageUrl} />
+									<div className="caption">
+											<h3>{this.props.header}</h3>
+											<p>{this.props.description}</p>
+											<p>
 												<Badge title1={this.props.title} number1={this.props.number} />
-										</p>
+											</p>
+									</div>
 								</div>
+							</div>
+				}
+		});
+
+		var ThumbnailList = React.createClass ({
+				render: function() {
+						var list = this.props.thumbnailData.map(function(thumbnailProps) {
+								return <Thumbnail {...thumbnailProps} />
+						});
+
+						return <div>
+							{list}
 						</div>
 				}
 		});
-		
+
+		// options = { thumbnailData: [{}, {}, {} ]}
 		var options = {
-						title: 'See Tutorials',
-						number: 33,
-						header: 'Learn React',
-						description: 'Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. ',
-						imageUrl: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'
+						thumbnailData: [{
+								title: 'See Tutorials',
+								number: 33,
+								header: 'Learn React',
+								description: 'Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library.',
+								imageUrl: 'https://s3.amazonaws.com/media-p.slid.es/uploads/alexanderfarennikov/images/1198519/reactjs.png'
+						},{
+								title: 'See Tutorials',
+								number: 24,
+								header: 'Learn Angular',
+								description: 'Angular is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library.',
+								imageUrl: 'http://adrianmejia.com/images/angularjs.png'
+						},{
+								title: 'See Tutorials',
+								number: 14,
+								header: 'Learn Meteor',
+								description: 'Meteor is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library. Reacr is fantastice new library.',
+								imageUrl: 'https://www.codementor.io/assets/tutorial_icon/meteor.png'
+						}]
+
 		};
 
+
+
   // React, please render this class
-  var element = React.createElement(Thambnail, options);
+  var element = React.createElement(ThumbnailList, options);
 
   // React, after you render this class, please place it in my body tag
   ReactDOM.render(element, document.querySelector('.target'));
