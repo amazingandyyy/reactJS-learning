@@ -1,3 +1,6 @@
+var React = require('react');
+var ThumbnailList = require('./thumbnail-list')
+
 // options = { thumbnailData: [{}, {}, {} ]}
 var options = {
         thumbnailData: [{
