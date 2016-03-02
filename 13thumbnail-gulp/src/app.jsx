@@ -1,3 +1,4 @@
+var ReactDOM = require('react-dom');
 var React = require('react');
 var ThumbnailList = require('./thumbnail-list')
 
