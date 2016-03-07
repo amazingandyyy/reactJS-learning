@@ -2,11 +2,9 @@ var ReactDOM = require('react-dom');
 var React = require('react');
 var Dropdown = require('./dropdown')
 
-var
-
 // options = { thumbnailData: [{}, {}, {} ]}
 var options = {
-        title: 'Choose your tutor' //What should show up on the button to open/close the dropdown
+        title: 'Choose your tutor', //What should show up on the button to open/close the dropdown
         items: [ //List of items to show in the dropdown
           'Andy Chen',
           'Derek Hsu',
