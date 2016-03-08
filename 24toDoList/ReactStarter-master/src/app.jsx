@@ -1,18 +1,27 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var ReactFire = require('reactfire');
+var ReactFireMixin = require('reactfire');
 var Firebase = require('firebase');
+var Header = require('./header');
 var rootUrl = 'https://amazignandyyytodo.firebaseio.com';
 
 var App = React.createClass({
-  mixins: [ ReactFire ],
+  mixins: [ ReactFireMixin ],
   componentWithMount: function() {
-    this.bindAsObject(now Firebase(rootUrl + 'items/'), 'items')
+    this.bindAsObject(new Firebase(rootUrl + 'items/'), 'items');
   },
   render: function() {
-    return <h1 className="red">
-      Hello yeah!
-    </h1>
+    return <div className='container-fluid'>
+      <div className='row panel panel-default'>
+        <div className='col-md-2'></div>
+        <div className='col-md-8'>
+          <h2 className='text-center'>
+            To-Do List
+          </h2>
+          <Header></Header>
+        </div>
+      </div>
+    </div>
   }
 });
 
