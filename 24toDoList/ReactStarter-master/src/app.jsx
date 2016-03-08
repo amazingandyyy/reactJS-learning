@@ -1,9 +1,14 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-var reactFire = require('reactfire');
+var ReactFire = require('reactfire');
 var Firebase = require('firebase');
+var rootUrl = 'https://amazignandyyytodo.firebaseio.com';
 
-var Hello = React.createClass({
+var App = React.createClass({
+  mixins: [ ReactFire ],
+  componentWithMount: function() {
+    this.bindAsObject(now Firebase(rootUrl + 'items/'), 'items')
+  },
   render: function() {
     return <h1 className="red">
       Hello yeah!
@@ -12,5 +17,5 @@ var Hello = React.createClass({
 });
 
 
-var element = React.createElement(Hello, {});
+var element = React.createElement(App, {});
 ReactDOM.render(element, document.querySelector('.container'));
