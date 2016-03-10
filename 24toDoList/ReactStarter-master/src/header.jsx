@@ -16,16 +16,17 @@ module.exports = React.createClass({
           <button
             onClick = {this.handleClick}
             className='btn btn-default'
-            type='button'>
+            type='submit'>
             Add
           </button>
         </span>
       </div>
   },
   handleClick: function() {
-    // Send Value of text input to Firebase
+    {/* Send Value of text input to Firebase*/}
+    console.log('the contect is: ' + this.state.text)
   },
   handleInputChange: function(event) {
-    event.target
+    this.setState({text: event.target.value})
   }
 });
