@@ -11,7 +11,8 @@ module.exports = React.createClass({
         <input
           value={this.state.text}
           onChange={this.handleInputChange}
-          type='text' className='form-control' />
+          type='text'
+          className='form-control' />
         <span className='input-group-btn'>
           <button
             onClick = {this.handleClick}
@@ -24,8 +25,13 @@ module.exports = React.createClass({
   },
   handleClick: function() {
     {/* Send Value of text input to Firebase*/}
-    console.log('the contect is: ' + this.state.text)
-  },
+    this.props.itemsStore.push({
+      text: this.state.text,
+      done: false
+    });
+
+    this.setState({text: ''})
+},
   handleInputChange: function(event) {
     this.setState({text: event.target.value})
   }
